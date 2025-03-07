@@ -8,7 +8,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ message: "City parameter is required" }, { status: 400 })
   }
 
-  const apiKey = process.env.OPENWEATHER_API_KEY
+  const apiKey = "629448b86cd8fa7c3cf24a796f173c26"
+
 
   if (!apiKey) {
     return NextResponse.json({ message: "API key not configured" }, { status: 500 })

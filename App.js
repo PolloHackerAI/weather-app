@@ -10,6 +10,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding: 20px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
 `
 
 const WeatherCard = styled.div`
@@ -17,12 +18,14 @@ const WeatherCard = styled.div`
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 24px;
+  background-color:rgba(2, 231, 251, 0.21);
 `
 
 const Title = styled.h1`
   margin: 0 0 8px 0;
   font-size: 24px;
   text-align: center;
+  background-color:rgba(2, 231, 251, 0.21);
 `
 
 const Subtitle = styled.p`
@@ -61,15 +64,10 @@ const SearchButton = styled.button`
   }
 `
 
-const ErrorMessage = styled.div`
-  color: #e53e3e;
-  text-align: center;
-  padding: 16px;
-`
 
 function App() {
-  const [city, setCity] = useState("Rome")
-  const [searchCity, setSearchCity] = useState("Rome")
+  const [city, setCity] = useState("Roma")
+  const [searchCity, setSearchCity] = useState("Roma")
   const [error, setError] = useState("")
 
   const handleSubmit = (e) => {
@@ -81,20 +79,19 @@ function App() {
   return (
     <Container>
       <WeatherCard>
-        <Title>Weather App</Title>
-        <Subtitle>Enter a city name to get the current weather</Subtitle>
+        <Title>Meteo M</Title>
+        <Subtitle>Inserisci il nome di una citta' </Subtitle>
 
         <SearchForm onSubmit={handleSubmit}>
           <SearchInput
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            placeholder="Enter city name"
+            placeholder="Nome della città"
           />
-          <SearchButton type="submit">Search</SearchButton>
+          <SearchButton type="submit">Cerca</SearchButton>
         </SearchForm>
 
-        {error ? <ErrorMessage>{error}</ErrorMessage> : <WeatherDisplay city={searchCity} setError={setError} />}
       </WeatherCard>
     </Container>
   )
